@@ -1,0 +1,9 @@
+<main class="toy-page">
+
+  <!-- DEB insert list of toys here -->
+	<article class="toy-item" *ngFor="let toy of toys | async">
+		<app-toy [toy]="toy" (select)=select($event)></app-toy>
+	</article>
+  <!-- END insert list of toys here -->
+
+</main>

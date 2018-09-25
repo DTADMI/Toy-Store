@@ -1,0 +1,17 @@
+<header>
+  <h1>
+    <a routerLink="/toys">Toy Store</a>
+  </h1>
+
+  <aside>
+    <a routerLink="/basket" *ngIf="isConnected | async">
+      <i class="mdi mdi-basket"></i>
+      <span>{{ nbToys | async }}</span>
+    </a>
+    <a (click)="openAuthent()" *ngIf="!(isConnected | async)">
+      <i class="mdi mdi-basket"></i>
+      <span>{{ nbToys | async }}</span>
+    </a>
+  </aside>
+
+</header>

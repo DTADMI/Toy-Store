@@ -1,0 +1,40 @@
+<div class="auth" *ngIf="isOpened | async">
+  <div class="authContent">
+
+    <a
+      class="authContent__close" (click)="close()"
+    ><i class="mdi mdi-window-close"></i></a>
+
+    <form novalidate #authent="ngForm" (submit)="submitForm()">
+
+      <p>
+        <label for="email">Utilisateur / email</label>
+        <input
+          type="email"
+          name="email"
+          #email="ngModel"
+          required
+          [(ngModel)]="user.email"
+          autofocus
+        >
+      </p>
+
+      <p>
+        <label for="pass">Mot de passe</label>
+        <input
+          type="password"
+          name="pass"
+          #pass="ngModel"
+          required
+          [readonly]="email.pristine || email.invalid"
+          [(ngModel)]="user.password"
+        >
+      </p>
+
+      <p class="authContent--center">
+        <button [disabled]="!authent.valid">Connection</button>
+      </p>
+
+    </form>
+  </div>
+</div>
